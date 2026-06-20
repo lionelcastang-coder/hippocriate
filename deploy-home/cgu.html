@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conditions Générales d'Utilisation — HippocrIAte</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1B3A6B; --blue:#2563EB; --teal:#06B6D4;
+    --bg:#F8FAFC; --bg2:#EEF2F7;
+    --text:#0F172A; --body:#374151; --muted:#64748B; --muted2:#94A3B8;
+    --border:#E2E8F0;
+    --shadow-sm:0 1px 3px rgba(15,23,42,.06), 0 4px 16px rgba(15,23,42,.04);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif;background:var(--bg2);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  a{text-decoration:none;color:inherit;}
+
+  /* ─── HEADER ─── */
+  header{background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;}
+  .nav{max-width:900px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:60px;}
+  .logo-text{font-size:20px;font-weight:800;letter-spacing:-.4px;}
+  .logo-text .hippocr{color:var(--navy);}
+  .logo-text .ia{color:var(--teal);}
+  .logo-text .te{color:var(--navy);}
+  .btn-close{display:inline-flex;align-items:center;gap:6px;font-family:inherit;font-size:13px;font-weight:600;color:var(--muted);background:#F1F5F9;border:1px solid var(--border);border-radius:8px;padding:7px 14px;cursor:pointer;transition:background .15s,color .15s;}
+  .btn-close:hover{background:#E2E8F0;color:var(--text);}
+
+  /* ─── LAYOUT ─── */
+  .page-wrap{max-width:900px;margin:0 auto;padding:48px 24px 80px;display:grid;grid-template-columns:220px 1fr;gap:40px;align-items:start;}
+  @media(max-width:720px){.page-wrap{grid-template-columns:1fr;} .toc{display:none;}}
+
+  /* ─── TOC ─── */
+  .toc{position:sticky;top:80px;}
+  .toc-title{font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted2);margin-bottom:12px;}
+  .toc a{display:block;font-size:13px;color:var(--muted);padding:5px 10px;border-left:2px solid var(--border);margin-bottom:2px;transition:color .15s,border-color .15s;}
+  .toc a:hover{color:var(--blue);border-left-color:var(--blue);}
+
+  /* ─── CONTENU ─── */
+  .content{}
+  .page-header{margin-bottom:32px;}
+  .page-eyebrow{font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--blue);margin-bottom:10px;}
+  .page-title{font-size:34px;font-weight:800;letter-spacing:-1px;color:var(--navy);line-height:1.1;}
+  .page-meta{margin-top:12px;font-size:13.5px;color:var(--muted);}
+
+  /* ─── META CARD ─── */
+  .meta-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 24px;margin-bottom:24px;box-shadow:var(--shadow-sm);display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;}
+  @media(max-width:480px){.meta-card{grid-template-columns:1fr;}}
+  .meta-row .meta-label{font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--muted2);margin-bottom:2px;}
+  .meta-row .meta-val{font-size:13.5px;color:var(--text);font-weight:500;}
+
+  /* ─── PREAMBULE ─── */
+  .preambule{background:linear-gradient(135deg,#EFF6FF,#ECFEFF);border:1.5px solid #BFDBFE;border-radius:14px;padding:22px 26px;margin-bottom:24px;box-shadow:var(--shadow-sm);}
+  .preambule .pre-label{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--blue);margin-bottom:8px;}
+  .preambule p{font-size:14px;color:var(--body);line-height:1.7;}
+
+  /* ─── ARTICLE ─── */
+  .article{background:#fff;border:1px solid var(--border);border-radius:14px;padding:24px 28px;margin-bottom:16px;box-shadow:var(--shadow-sm);}
+  .article-header{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;}
+  .article-num{display:inline-flex;align-items:center;justify-content:center;min-width:32px;height:32px;border-radius:9px;background:#EFF6FF;color:var(--blue);font-size:13px;font-weight:700;flex:none;margin-top:1px;}
+  .article-title-wrap{}
+  .article-title{font-size:15.5px;font-weight:700;color:var(--navy);line-height:1.3;}
+  .badge-new{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;background:#ECFEFF;color:#0E7490;border:1px solid #A5F3FC;border-radius:5px;padding:2px 7px;margin-left:8px;vertical-align:middle;}
+  .badge-update{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;background:#EFF6FF;color:var(--blue);border:1px solid #BFDBFE;border-radius:5px;padding:2px 7px;margin-left:8px;vertical-align:middle;}
+  .article p{font-size:14px;color:var(--body);line-height:1.75;margin-bottom:10px;}
+  .article p:last-child{margin-bottom:0;}
+  .article ul, .article ol{margin:8px 0 12px 20px;}
+  .article li{font-size:14px;color:var(--body);line-height:1.7;margin-bottom:4px;}
+  .article h3{font-size:13.5px;font-weight:700;color:var(--navy);margin:16px 0 8px;}
+  .article h3:first-of-type{margin-top:4px;}
+
+  /* ─── TABLE ─── */
+  .tbl-wrap{overflow-x:auto;margin:12px 0;}
+  table{width:100%;border-collapse:collapse;font-size:13px;}
+  th{background:#F8FAFC;font-weight:700;color:var(--navy);text-align:left;padding:9px 12px;border:1px solid var(--border);}
+  td{padding:8px 12px;border:1px solid var(--border);color:var(--body);vertical-align:top;}
+  tr:nth-child(even) td{background:#FAFBFC;}
+
+  /* ─── NOTICE ─── */
+  .notice-warn{background:#FFFBEB;border:1px solid #FDE68A;border-radius:10px;padding:14px 18px;margin:12px 0;}
+  .notice-warn p{font-size:13px;color:#92400E;margin:0;}
+  .notice-warn strong{color:#78350F;}
+  .notice-info{background:#EFF6FF;border:1px solid #BFDBFE;border-radius:10px;padding:14px 18px;margin:12px 0;}
+  .notice-info p{font-size:13px;color:#1e40af;margin:0;}
+  .notice-info strong{color:var(--navy);}
+
+  /* ─── CONTACTS TABLE ─── */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;}
+  @media(max-width:480px){.contact-grid{grid-template-columns:1fr;}}
+  .contact-item{background:#F8FAFC;border:1px solid var(--border);border-radius:10px;padding:12px 14px;}
+  .contact-item .c-label{font-size:11px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px;}
+  .contact-item a{font-size:13.5px;color:var(--blue);font-weight:600;}
+
+  /* ─── FOOTER ─── */
+  footer{background:var(--navy);color:rgba(255,255,255,.6);padding:28px 24px;text-align:center;font-size:13px;}
+  footer a{color:#7DD3FC;font-weight:600;}
+  footer a:hover{color:#bae6fd;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <span class="logo-text"><span class="hippocr">Hippocr</span><span class="ia">IA</span><span class="te">te</span></span>
+    <button class="btn-close" onclick="window.close()">✕ Fermer</button>
+  </div>
+</header>
+
+<div class="page-wrap">
+
+  <!-- TABLE DES MATIÈRES -->
+  <nav class="toc" aria-label="Table des matières">
+    <div class="toc-title">Sommaire</div>
+    <a href="#art1">Art. 1 — Définitions</a>
+    <a href="#art2">Art. 2 — Objet</a>
+    <a href="#art3">Art. 3 — Acceptation</a>
+    <a href="#art4">Art. 4 — Le Service</a>
+    <a href="#art5">Art. 5 — Inscription</a>
+    <a href="#art6">Art. 6 — Documents uploadés</a>
+    <a href="#art7">Art. 7 — Intelligence artificielle</a>
+    <a href="#art7bis">Art. 7bis — Droits IA</a>
+    <a href="#art7ter">Art. 7ter — Incidents IA</a>
+    <a href="#art8">Art. 8 — Obligations</a>
+    <a href="#art9">Art. 9 — Propriété intellectuelle</a>
+    <a href="#art10">Art. 10 — Quotas</a>
+    <a href="#art11">Art. 11 — Responsabilité</a>
+    <a href="#art12">Art. 12 — Données personnelles</a>
+    <a href="#art13">Art. 13 — Résiliation</a>
+    <a href="#art14">Art. 14 — Contenus illicites</a>
+    <a href="#art15">Art. 15 — Droit applicable</a>
+    <a href="#art16">Art. 16 — Modifications</a>
+    <a href="#art17">Art. 17 — Dispositions diverses</a>
+  </nav>
+
+  <!-- CONTENU -->
+  <div class="content">
+
+    <div class="page-header">
+      <div class="page-eyebrow">Juridique</div>
+      <h1 class="page-title">Conditions Générales d'Utilisation</h1>
+      <p class="page-meta">Version 1.1 — Juillet 2026 · Conforme au Règlement (UE) 2024/1689 « IA Act »</p>
+    </div>
+
+    <!-- MÉTA -->
+    <div class="meta-card">
+      <div class="meta-row">
+        <div class="meta-label">Éditeur</div>
+        <div class="meta-val">ACNL Consulting SAS · SIRET 994 630 267 00015</div>
+      </div>
+      <div class="meta-row">
+        <div class="meta-label">Version</div>
+        <div class="meta-val">V1.1 — Juillet 2026 (suppl. V1.0 : +IA Act)</div>
+      </div>
+      <div class="meta-row">
+        <div class="meta-label">Applicable à</div>
+        <div class="meta-val">Tous abonnés HippocrIAte · Plans Essentiel · Intensif · Concours</div>
+      </div>
+      <div class="meta-row">
+        <div class="meta-label">Contact</div>
+        <div class="meta-val"><a href="mailto:contact@hippocriate.fr" style="color:var(--blue)">contact@hippocriate.fr</a> · <a href="mailto:ia-droits@hippocriate.fr" style="color:var(--blue)">ia-droits@hippocriate.fr</a></div>
+      </div>
+    </div>
+
+    <!-- PRÉAMBULE -->
+    <div class="preambule">
+      <div class="pre-label">Préambule</div>
+      <p>HippocrIAte est une application de tutorat personnalisé par intelligence artificielle, destinée aux étudiants en première année de médecine (PASS / L.AS). Elle est éditée et exploitée par ACNL Consulting, société enregistrée en France. Les présentes Conditions Générales d'Utilisation (CGU) régissent l'ensemble des droits et obligations de l'Utilisateur dans le cadre de l'accès et de l'usage de l'Application. Elles sont rédigées en conformité avec le Règlement (UE) 2016/679 (RGPD), le Règlement (UE) 2024/1689 (IA Act), la loi française pour la Confiance dans l'Économie Numérique (LCEN) et le Code de la consommation.</p>
+    </div>
+
+    <!-- ARTICLE 1 -->
+    <div class="article" id="art1">
+      <div class="article-header">
+        <div class="article-num">1</div>
+        <div class="article-title-wrap">
+          <div class="article-title">Définitions <span class="badge-update">Mis à jour V1.1</span></div>
+        </div>
+      </div>
+      <p>Au sens des présentes CGU, les termes ci-après ont la signification suivante :</p>
+      <p><strong>« Application » ou « HippocrIAte »</strong> désigne la plateforme web et mobile éditée par ACNL Consulting, accessible à l'adresse www.hippocriate.fr, permettant à l'Utilisateur d'uploader ses cours et d'interagir avec un tuteur IA personnalisé.</p>
+      <p><strong>« Éditeur »</strong> désigne ACNL Consulting, société éditrice et exploitante de l'Application.</p>
+      <p><strong>« Utilisateur » ou « Étudiant »</strong> désigne toute personne physique majeure, inscrite sur l'Application et titulaire d'un compte actif, qui accède au Service dans le cadre de ses études (PASS, L.AS ou formation assimilée).</p>
+      <p><strong>« Compte »</strong> désigne l'espace personnel et sécurisé de l'Utilisateur, accessible après authentification, regroupant ses documents, ses interactions avec l'IA et son historique de progression.</p>
+      <p><strong>« Corpus Personnel »</strong> désigne l'ensemble des documents uploadés par l'Utilisateur dans l'Application (polycopiés, fiches, présentations, images). Le Corpus Personnel est propre à chaque Utilisateur et strictement isolé de celui des autres Utilisateurs.</p>
+      <p><strong>« Document Uploadé »</strong> désigne tout fichier (PDF, DOCX, PNG, JPG) déposé par l'Utilisateur dans l'Application afin d'être traité par le pipeline d'ingestion IA.</p>
+      <p><strong>« Contenu Généré »</strong> désigne tout contenu produit par l'IA de l'Application en réponse aux requêtes de l'Utilisateur : réponses de chat, QCM, fiches de synthèse, flashcards, planning, retours oraux.</p>
+      <p><strong>« Service »</strong> désigne l'ensemble des fonctionnalités accessibles selon le Plan d'abonnement souscrit.</p>
+      <p><strong>« Plan »</strong> désigne le niveau d'abonnement souscrit par l'Utilisateur : Essentiel, Intensif ou Concours.</p>
+      <p><strong>« IA Act »</strong> désigne le Règlement (UE) 2024/1689 du Parlement européen et du Conseil du 13 juin 2024 établissant des règles harmonisées concernant l'intelligence artificielle, entré en vigueur le 1ᵉʳ août 2024.</p>
+      <p><strong>« Système d'IA »</strong> désigne, conformément à l'article 3(1) de l'IA Act, un système automatisé conçu pour fonctionner avec différents niveaux d'autonomie et qui, pour un ensemble défini d'objectifs, génère des sorties telles que des prédictions, recommandations, décisions ou contenus.</p>
+      <p><strong>« GPAI » (General Purpose AI Model)</strong> désigne un modèle d'IA à usage général au sens de l'article 3(63) de l'IA Act. Claude (Anthropic) et les modèles Mistral AI utilisés dans le Service entrent dans cette catégorie.</p>
+      <p><strong>« Évaluation pédagogique IA »</strong> désigne toute évaluation, score, recommandation ou planning produit par l'Application à partir des données de l'Utilisateur. Ces évaluations sont strictement personnelles, non contraignantes et sans effet sur les résultats officiels.</p>
+    </div>
+
+    <!-- ARTICLE 2 -->
+    <div class="article" id="art2">
+      <div class="article-header">
+        <div class="article-num">2</div>
+        <div class="article-title-wrap"><div class="article-title">Objet et champ d'application</div></div>
+      </div>
+      <p>Les présentes CGU ont pour objet de définir les conditions dans lesquelles l'Utilisateur accède à l'Application HippocrIAte et utilise ses fonctionnalités. Elles constituent un contrat entre l'Éditeur et l'Utilisateur.</p>
+      <p>Les CGU s'appliquent à tout Utilisateur dès lors qu'il crée un Compte et active un abonnement. Elles prévalent sur toute condition générale ou particulière non expressément agréée par l'Éditeur. Les CGU sont accessibles en permanence depuis l'Application. L'Éditeur se réserve le droit de les modifier selon les modalités prévues à l'Article 16.</p>
+    </div>
+
+    <!-- ARTICLE 3 -->
+    <div class="article" id="art3">
+      <div class="article-header">
+        <div class="article-num">3</div>
+        <div class="article-title-wrap"><div class="article-title">Acceptation des CGU</div></div>
+      </div>
+      <p>L'accès et l'utilisation de l'Application sont subordonnés à l'acceptation sans réserve des présentes CGU. Lors de la création de son Compte et à chaque souscription d'un abonnement, l'Utilisateur est invité à cocher une case attestant qu'il a lu et accepté les CGU.</p>
+      <p>Cette acceptation est consignée électroniquement avec horodatage et constitue une preuve opposable. L'Utilisateur qui n'accepte pas les présentes CGU doit s'abstenir d'utiliser l'Application.</p>
+    </div>
+
+    <!-- ARTICLE 4 -->
+    <div class="article" id="art4">
+      <div class="article-header">
+        <div class="article-num">4</div>
+        <div class="article-title-wrap"><div class="article-title">Description du Service</div></div>
+      </div>
+      <p>HippocrIAte est un tuteur IA personnalisé destiné aux étudiants en PASS et L.AS. L'Utilisateur uploade ses propres cours ; l'Application les analyse et devient son tuteur personnel, ancré exclusivement sur son Corpus Personnel.</p>
+      <h3>4.1 Plans et fonctionnalités</h3>
+      <p>Le Service est actuellement décliné en trois Plans d'abonnement décrits sur le site d'HippocrIAte : <strong>Essentiel</strong>, <strong>Intensif</strong> et <strong>Concours</strong>.</p>
+      <h3>4.2 Disponibilité du Service</h3>
+      <p>L'Éditeur s'engage à fournir le Service avec un niveau de disponibilité cible de 99 % par mois calendaire, hors maintenances programmées communiquées avec un préavis de 48 heures.</p>
+    </div>
+
+    <!-- ARTICLE 5 -->
+    <div class="article" id="art5">
+      <div class="article-header">
+        <div class="article-num">5</div>
+        <div class="article-title-wrap"><div class="article-title">Inscription et gestion du Compte</div></div>
+      </div>
+      <h3>5.1 Conditions d'inscription</h3>
+      <p>L'inscription est ouverte à toute personne physique majeure. L'Utilisateur atteste sur l'honneur être inscrit en PASS, L.AS ou formation équivalente et utiliser le Service à des fins d'étude personnelle.</p>
+      <h3>5.2 Identifiants</h3>
+      <p>L'Utilisateur est seul responsable de la confidentialité de ses identifiants. Il s'engage à notifier immédiatement l'Éditeur de toute utilisation non autorisée de son Compte à l'adresse <a href="mailto:contact@hippocriate.fr" style="color:var(--blue)">contact@hippocriate.fr</a>.</p>
+      <h3>5.3 Unicité du compte</h3>
+      <p>Un Compte est strictement personnel. L'Utilisateur s'interdit de partager ses identifiants ou de permettre à un tiers d'accéder à son Compte.</p>
+      <h3>5.4 Exactitude des informations</h3>
+      <p>L'Utilisateur s'engage à fournir des informations exactes, complètes et à jour lors de son inscription et à les maintenir à jour.</p>
+    </div>
+
+    <!-- ARTICLE 6 -->
+    <div class="article" id="art6">
+      <div class="article-header">
+        <div class="article-num">6</div>
+        <div class="article-title-wrap"><div class="article-title">Documents Uploadés : propriété, droits d'auteur et responsabilité</div></div>
+      </div>
+      <div class="notice-info" style="margin-bottom:14px;"><p><strong>Principe fondamental</strong> — Les Documents Uploadés par l'Utilisateur restent en toutes circonstances la propriété exclusive de l'Utilisateur ou de leurs auteurs originaux. L'Éditeur ne revendique aucun droit de propriété sur ces documents.</p></div>
+      <h3>6.1 Propriété des Documents Uploadés</h3>
+      <p>L'Utilisateur demeure à tout moment propriétaire des Documents Uploadés ou, s'il n'en est pas l'auteur original, reconnaît agir en qualité de détenteur légitime. L'Éditeur n'acquiert aucun droit de propriété intellectuelle sur les Documents Uploadés.</p>
+      <h3>6.2 Licence d'utilisation technique limitée</h3>
+      <p>Aux seules fins du fonctionnement technique du Service (traitement OCR, indexation vectorielle, génération de réponses IA, création de fiches et flashcards), l'Utilisateur consent à l'Éditeur une licence d'utilisation non exclusive, non transmissible, limitée au traitement technique de ses documents. Cette licence :</p>
+      <ul>
+        <li>est strictement limitée à la fourniture du Service souscrit ;</li>
+        <li>ne permet pas à l'Éditeur de transmettre, vendre, publier, partager ou exploiter commercialement les Documents Uploadés en dehors du Service ;</li>
+        <li>prend fin automatiquement lors de la suppression du document ou à la clôture du Compte.</li>
+      </ul>
+      <h3>6.3 Responsabilité exclusive de l'Utilisateur quant aux droits d'auteur</h3>
+      <div class="notice-warn"><p><strong>Clause essentielle — Droits d'auteur.</strong> L'Utilisateur est seul responsable des documents qu'il uploade dans l'Application. Il garantit disposer de tous les droits et autorisations nécessaires. L'Éditeur ne saurait être tenu responsable de tout manquement aux droits d'auteur imputable à l'Utilisateur.</p></div>
+      <p style="margin-top:12px;">En uploadant un document, l'Utilisateur déclare et garantit :</p>
+      <ul>
+        <li><strong>Autorisation</strong> — être l'auteur du document ou disposer d'une autorisation expresse de l'ayant-droit ;</li>
+        <li><strong>Conformité</strong> — que l'upload et le traitement est conforme aux conditions de la source ;</li>
+        <li><strong>Licéité</strong> — qu'il n'uploadera pas de documents contrefaits ou obtenus en violation d'une obligation contractuelle de confidentialité ;</li>
+        <li><strong>Usage personnel</strong> — que l'usage du Service est strictement personnel et non commercial.</li>
+      </ul>
+      <h3>6.4 Stockage et isolation du Corpus Personnel</h3>
+      <p>Les Documents Uploadés sont stockés sur des serveurs sécurisés hébergés dans l'Union Européenne. Chaque Corpus Personnel est techniquement isolé par un double mécanisme (Row Level Security + filtre applicatif). Aucun Document Uploadé ne peut être utilisé pour entraîner un modèle d'IA tiers.</p>
+      <h3>6.5 Suppression des Documents Uploadés</h3>
+      <p>L'Utilisateur peut supprimer à tout moment ses Documents Uploadés depuis « Mes cours ». La suppression entraîne l'effacement définitif et irréversible du document, de ses chunks et de ses vecteurs. À la clôture du Compte, l'ensemble du Corpus Personnel est supprimé dans les conditions de l'Article 13.</p>
+    </div>
+
+    <!-- ARTICLE 7 -->
+    <div class="article" id="art7">
+      <div class="article-header">
+        <div class="article-num">7</div>
+        <div class="article-title-wrap"><div class="article-title">Intelligence artificielle, Contenu Généré et conformité IA Act <span class="badge-update">Mis à jour V1.1</span></div></div>
+      </div>
+      <h3>7.1 Cadre réglementaire — Règlement (UE) 2024/1689 « IA Act »</h3>
+      <p>HippocrIAte est un système d'intelligence artificielle soumis au Règlement (UE) 2024/1689 dit « IA Act », entré en vigueur le 1ᵉʳ août 2024. L'Éditeur a procédé à l'analyse de classification requise par l'article 6 de ce règlement. Les composants d'interaction directe (chat tuteur, tuteur oral) sont classés à <strong>risque limité</strong> au sens de l'article 50 de l'IA Act.</p>
+      <h3>7.2 Pratiques interdites — Déclaration de conformité (Art. 5 IA Act)</h3>
+      <p>L'Éditeur déclare expressément que le Service n'utilise aucune pratique prohibée par l'article 5 du Règlement IA Act, et notamment : aucune technique de manipulation subliminale, aucune exploitation des vulnérabilités, aucun système de notation sociale, aucune reconnaissance des émotions en contexte scolaire, aucune identification biométrique.</p>
+      <h3>7.3 Disclosure — Interaction avec un système d'IA (Art. 50(1) IA Act)</h3>
+      <p>Conformément à l'article 50(1) de l'IA Act, l'Éditeur informe expressément l'Utilisateur que :</p>
+      <ul>
+        <li><strong>Chat tuteur</strong> — Le tuteur pédagogique est un système d'intelligence artificielle (modèle Claude d'Anthropic), et non un être humain ;</li>
+        <li><strong>Tuteur oral</strong> — Le tuteur oral (plans Intensif et Concours) utilise la reconnaissance vocale automatique (Deepgram) et la synthèse vocale (Cartesia), et non un être humain ;</li>
+        <li><strong>Contenus</strong> — Les QCM, fiches de synthèse, flashcards, évaluations et plannings sont entièrement générés par des algorithmes d'intelligence artificielle.</li>
+      </ul>
+      <h3>7.4 Avertissement médical</h3>
+      <div class="notice-warn"><p><strong>Important — Avertissement médical.</strong> Le tuteur IA d'HippocrIAte n'est pas un professionnel de santé. Les réponses générées sont des aides pédagogiques pour la préparation aux examens et ne constituent pas un avis médical, un diagnostic ni une recommandation thérapeutique.</p></div>
+      <h3>7.5 Prestataires techniques IA et modèles GPAI</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr><th>Prestataire</th><th>Usage</th><th>Localisation</th><th>Statut IA Act</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Mistral AI</td><td>Extraction texte (OCR)</td><td>France / UE</td><td>GPAI — conforme IA Act</td></tr>
+            <tr><td>Voyage AI</td><td>Calcul des embeddings</td><td>États-Unis</td><td>Outil technique</td></tr>
+            <tr><td>Anthropic (Claude)</td><td>Génération réponses tuteur IA</td><td>États-Unis</td><td>GPAI — conforme IA Act</td></tr>
+            <tr><td>Deepgram</td><td>Reconnaissance vocale</td><td>États-Unis</td><td>Outil technique</td></tr>
+            <tr><td>Cartesia</td><td>Synthèse vocale</td><td>États-Unis</td><td>Outil technique</td></tr>
+            <tr><td>Scaleway</td><td>Hébergement fichiers et BDD</td><td>Union Européenne</td><td>Infra — hors périmètre IA Act</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>7.6 Limites et imprécisions de l'IA</h3>
+      <p>L'Utilisateur reconnaît que les systèmes d'IA peuvent produire des réponses inexactes, incomplètes ou erronées, notamment en cas de documents de mauvaise qualité. L'Utilisateur est invité à vérifier les informations critiques auprès de ses cours originaux.</p>
+      <h3>7.7 Propriété des Contenus Générés</h3>
+      <p>Les Contenus Générés sont mis à la disposition exclusive de l'Utilisateur pour son usage personnel d'étude. L'Éditeur ne revendique pas de droits d'auteur sur ces Contenus. L'Utilisateur peut exporter et utiliser les Contenus Générés à des fins personnelles. Il s'interdit de les commercialiser ou de les distribuer à titre onéreux.</p>
+    </div>
+
+    <!-- ARTICLE 7bis -->
+    <div class="article" id="art7bis">
+      <div class="article-header">
+        <div class="article-num">7bis</div>
+        <div class="article-title-wrap"><div class="article-title">Droits de l'Utilisateur relatifs aux évaluations par l'IA <span class="badge-new">Nouveau V1.1</span></div></div>
+      </div>
+      <h3>7bis.1 Portée non contraignante des évaluations IA</h3>
+      <p>Les évaluations, scores et recommandations produits par l'Application sont des aides à l'apprentissage strictement personnelles et non contraignantes. Ces éléments n'ont aucune valeur officielle, ne sont jamais communiqués à des tiers, et peuvent être ignorés, contestés ou supprimés par l'Utilisateur à tout moment.</p>
+      <h3>7bis.2 Droit à l'explication des évaluations IA (Art. 86 IA Act)</h3>
+      <p>Conformément à l'article 86 du Règlement IA Act, l'Utilisateur dispose du droit de demander des explications claires sur la logique ayant conduit à une évaluation ou recommandation IA le concernant, depuis l'interface de l'Application ou par e-mail à <a href="mailto:ia-droits@hippocriate.fr" style="color:var(--blue)">ia-droits@hippocriate.fr</a>. L'Éditeur s'engage à apporter une réponse dans un délai de <strong>15 jours ouvrés</strong>.</p>
+      <h3>7bis.3 Droit à la révision humaine</h3>
+      <p>L'Utilisateur peut, à tout moment, demander qu'une évaluation IA significative fasse l'objet d'une révision par un membre de l'équipe pédagogique à l'adresse <a href="mailto:ia-droits@hippocriate.fr" style="color:var(--blue)">ia-droits@hippocriate.fr</a>. L'Éditeur s'engage à traiter cette demande dans un délai de <strong>7 jours ouvrés</strong>.</p>
+      <h3>7bis.4 Absence de discrimination</h3>
+      <p>L'Éditeur s'engage à ce que les algorithmes de l'Application ne produisent pas de discrimination fondée sur l'origine, le sexe, la religion, le handicap ou tout autre critère protégé.</p>
+      <h3>7bis.5 Contrôle humain de l'Utilisateur</h3>
+      <p>L'Utilisateur conserve à tout moment la maîtrise de son apprentissage : il peut désactiver le planning adaptatif, ignorer, modifier ou supprimer toute évaluation ou recommandation IA, et interrompre à tout moment une session.</p>
+    </div>
+
+    <!-- ARTICLE 7ter -->
+    <div class="article" id="art7ter">
+      <div class="article-header">
+        <div class="article-num">7ter</div>
+        <div class="article-title-wrap"><div class="article-title">Signalement d'incidents IA et autorité de surveillance <span class="badge-new">Nouveau V1.1</span></div></div>
+      </div>
+      <h3>7ter.1 Signalement d'incidents ou dysfonctionnements IA</h3>
+      <p>L'Utilisateur qui constaterait un dysfonctionnement grave ou un comportement potentiellement préjudiciable du système IA est invité à le signaler à <a href="mailto:incidents-ia@hippocriate.fr" style="color:var(--blue)">incidents-ia@hippocriate.fr</a>. L'Éditeur s'engage à accuser réception sous <strong>48 heures</strong>.</p>
+      <h3>7ter.2 Autorité nationale de surveillance IA</h3>
+      <p>En France, la Commission Nationale de l'Informatique et des Libertés (CNIL) est désignée comme autorité nationale compétente pour la supervision de l'IA Act. L'Utilisateur peut adresser toute réclamation à la CNIL : <a href="https://www.cnil.fr" target="_blank" rel="noopener" style="color:var(--blue)">www.cnil.fr</a> — 3, place de Fontenoy, 75007 Paris.</p>
+      <h3>7ter.3 Registre de transparence IA</h3>
+      <p>L'Éditeur tient à jour un registre interne de transparence IA documentant la classification du système, les prestataires IA, les mesures de contrôle humain et les incidents signalés, communicable aux autorités compétentes sur demande.</p>
+    </div>
+
+    <!-- ARTICLE 8 -->
+    <div class="article" id="art8">
+      <div class="article-header">
+        <div class="article-num">8</div>
+        <div class="article-title-wrap"><div class="article-title">Obligations et comportements interdits</div></div>
+      </div>
+      <h3>8.1 Obligations générales</h3>
+      <p>L'Utilisateur s'engage à utiliser l'Application conformément à sa destination, respecter les droits des tiers, ne pas tenter de contourner les restrictions techniques, et signaler à l'Éditeur tout dysfonctionnement ou faille de sécurité constaté.</p>
+      <h3>8.2 Comportements expressément interdits</h3>
+      <ul>
+        <li><strong>Partage de compte</strong> — Partager ses identifiants ou son Compte avec des tiers ;</li>
+        <li><strong>Contenus illicites</strong> — Uploader des documents à caractère illicite, diffamatoire, pornographique ou violent ;</li>
+        <li><strong>Usage commercial</strong> — Utiliser le Service à des fins commerciales, professionnelles ou de revente ;</li>
+        <li><strong>Intrusion</strong> — Tenter d'accéder au Corpus Personnel d'un autre Utilisateur ;</li>
+        <li><strong>Rétro-ingénierie</strong> — Procéder à une ingénierie inverse, décompiler ou extraire le code source ;</li>
+        <li><strong>Automatisation</strong> — Utiliser des robots ou scripts pour accéder au Service hors des interfaces prévues ;</li>
+        <li><strong>Données personnelles</strong> — Uploader des documents contenant des données personnelles de tiers sans leur consentement ;</li>
+        <li><strong>Manipulation IA</strong> — Tenter de manipuler, tromper ou contourner les systèmes d'IA de l'Application.</li>
+      </ul>
+    </div>
+
+    <!-- ARTICLE 9 -->
+    <div class="article" id="art9">
+      <div class="article-header">
+        <div class="article-num">9</div>
+        <div class="article-title-wrap"><div class="article-title">Propriété intellectuelle de l'Application</div></div>
+      </div>
+      <p>L'Application, son code source, son interface, ses marques, logos, bases de données, algorithmes et toute documentation associée sont la propriété exclusive de l'Éditeur ou de ses concédants de licence. L'abonnement confère uniquement un droit d'accès et d'utilisation personnel, non exclusif et non transmissible, pour la durée de l'abonnement.</p>
+    </div>
+
+    <!-- ARTICLE 10 -->
+    <div class="article" id="art10">
+      <div class="article-header">
+        <div class="article-num">10</div>
+        <div class="article-title-wrap"><div class="article-title">Quotas et limites d'utilisation</div></div>
+      </div>
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr><th>Paramètre</th><th>Limite</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Stockage de documents</td><td>200 Mo cumulés (Plan Essentiel)</td></tr>
+            <tr><td>Questions chat tuteur</td><td>50 questions/jour (Essentiel) — Illimité (Intensif et Concours)</td></tr>
+            <tr><td>Tuteur oral</td><td>Non inclus (Essentiel) · 2 h/mois (Intensif) · 5 h/mois (Concours)</td></tr>
+            <tr><td>Formats acceptés</td><td>PDF, DOCX, PNG, JPG — 50 Mo/fichier (PDF/DOCX), 10 Mo (images)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>L'Éditeur se réserve le droit de modifier les quotas avec un préavis de 30 jours.</p>
+    </div>
+
+    <!-- ARTICLE 11 -->
+    <div class="article" id="art11">
+      <div class="article-header">
+        <div class="article-num">11</div>
+        <div class="article-title-wrap"><div class="article-title">Limitation de responsabilité de l'Éditeur</div></div>
+      </div>
+      <h3>11.1 Responsabilité quant aux Documents Uploadés</h3>
+      <p>L'Éditeur est un hébergeur technique au sens de la LCEN (art. 6-I-2). Sa responsabilité ne saurait être engagée du fait du contenu des Documents Uploadés, dès lors qu'il n'en a pas connaissance du caractère illicite ou qu'il a agi promptement pour le retirer sur notification.</p>
+      <h3>11.2 Responsabilité quant aux Contenus Générés</h3>
+      <p>Les Contenus Générés par l'IA sont fournis à titre d'aide pédagogique uniquement. L'Éditeur ne garantit pas l'exactitude, l'exhaustivité ou l'adéquation de ces contenus pour la réussite aux examens.</p>
+      <h3>11.3 Responsabilité quant aux décisions IA (IA Act)</h3>
+      <p>Conformément à l'IA Act, les évaluations pédagogiques produites par l'Application sont des outils d'aide à l'apprentissage sans effet contraignant. L'Éditeur ne saurait être tenu responsable des décisions prises par l'Utilisateur sur la base de ces évaluations.</p>
+      <h3>11.4 Interruptions de service</h3>
+      <p>L'Éditeur ne saurait être tenu responsable des interruptions de service liées à des défaillances de prestataires tiers, à des attaques informatiques, à des cas de force majeure ou à des opérations de maintenance.</p>
+      <h3>11.5 Plafond de responsabilité</h3>
+      <p>En tout état de cause, la responsabilité de l'Éditeur envers l'Utilisateur est plafonnée au montant des sommes effectivement versées au cours des trois (3) derniers mois précédant le fait générateur.</p>
+    </div>
+
+    <!-- ARTICLE 12 -->
+    <div class="article" id="art12">
+      <div class="article-header">
+        <div class="article-num">12</div>
+        <div class="article-title-wrap"><div class="article-title">Données personnelles</div></div>
+      </div>
+      <p>Le traitement des données personnelles de l'Utilisateur est régi par la Politique de Confidentialité d'HippocrIAte, accessible à l'adresse www.hippocriate.fr/confidentialite. L'Éditeur traite les données personnelles en qualité de Responsable de traitement, conformément au RGPD et à la loi Informatique et Libertés modifiée.</p>
+      <p>L'Utilisateur dispose d'un droit d'accès, de rectification, d'effacement, de portabilité et d'opposition, exerçable à l'adresse <a href="mailto:dpo@hippocriate.fr" style="color:var(--blue)">dpo@hippocriate.fr</a>.</p>
+    </div>
+
+    <!-- ARTICLE 13 -->
+    <div class="article" id="art13">
+      <div class="article-header">
+        <div class="article-num">13</div>
+        <div class="article-title-wrap"><div class="article-title">Suspension et résiliation du Compte</div></div>
+      </div>
+      <h3>13.1 Résiliation à l'initiative de l'Utilisateur</h3>
+      <p>L'Utilisateur peut résilier son abonnement à tout moment depuis son espace personnel ou en contactant <a href="mailto:contact@hippocriate.fr" style="color:var(--blue)">contact@hippocriate.fr</a>. Les conditions de remboursement sont régies par les CGV.</p>
+      <h3>13.2 Résiliation à l'initiative de l'Éditeur</h3>
+      <p>L'Éditeur se réserve le droit de suspendre ou résilier immédiatement le Compte en cas de violation des obligations de l'Article 8, d'upload de contenus illicites, de violation grave des droits d'auteur ou de fraude caractérisée.</p>
+      <h3>13.3 Effets de la clôture du Compte</h3>
+      <ul>
+        <li>l'accès au Service est immédiatement révoqué ;</li>
+        <li>le Corpus Personnel est effacé dans un délai maximum de 30 jours ;</li>
+        <li>les Contenus Générés précédemment exportés restent en possession de l'Utilisateur.</li>
+      </ul>
+    </div>
+
+    <!-- ARTICLE 14 -->
+    <div class="article" id="art14">
+      <div class="article-header">
+        <div class="article-num">14</div>
+        <div class="article-title-wrap"><div class="article-title">Signalement d'un contenu illicite</div></div>
+      </div>
+      <p>Conformément à la LCEN et au Règlement européen sur les services numériques (DSA), tout tiers estimant qu'un contenu accessible via le Service est illicite peut notifier l'Éditeur à l'adresse <a href="mailto:legal@hippocriate.fr" style="color:var(--blue)">legal@hippocriate.fr</a> en fournissant ses coordonnées, la description et localisation du contenu litigieux, les raisons invoquées et, pour les atteintes aux droits d'auteur, la preuve de sa qualité d'ayant-droit.</p>
+    </div>
+
+    <!-- ARTICLE 15 -->
+    <div class="article" id="art15">
+      <div class="article-header">
+        <div class="article-num">15</div>
+        <div class="article-title-wrap"><div class="article-title">Droit applicable et règlement des litiges</div></div>
+      </div>
+      <p>Les présentes CGU sont soumises au droit français et au droit de l'Union européenne, notamment au Règlement (UE) 2024/1689 (IA Act) et au Règlement (UE) 2016/679 (RGPD).</p>
+      <p>En cas de litige, l'Utilisateur est invité à contacter en premier lieu <a href="mailto:contact@hippocriate.fr" style="color:var(--blue)">contact@hippocriate.fr</a> afin de rechercher une solution amiable. Conformément aux articles L.612-1 et suivants du Code de la consommation, l'Utilisateur consommateur peut recourir gratuitement à un médiateur de la consommation. À défaut de résolution amiable, tout litige sera soumis à la compétence exclusive des tribunaux du ressort du siège social de l'Éditeur.</p>
+    </div>
+
+    <!-- ARTICLE 16 -->
+    <div class="article" id="art16">
+      <div class="article-header">
+        <div class="article-num">16</div>
+        <div class="article-title-wrap"><div class="article-title">Modification des CGU</div></div>
+      </div>
+      <p>L'Éditeur se réserve le droit de modifier les présentes CGU, notamment pour se conformer à l'évolution de la réglementation IA Act et RGPD. Toute modification substantielle sera notifiée avec un préavis minimum de 30 jours. L'Utilisateur qui n'accepte pas les nouvelles CGU peut résilier son abonnement avant leur entrée en vigueur.</p>
+    </div>
+
+    <!-- ARTICLE 17 -->
+    <div class="article" id="art17">
+      <div class="article-header">
+        <div class="article-num">17</div>
+        <div class="article-title-wrap"><div class="article-title">Dispositions diverses <span class="badge-update">Mis à jour V1.1</span></div></div>
+      </div>
+      <h3>17.1 Intégralité de l'accord</h3>
+      <p>Les présentes CGU, complétées par les CGV et la Politique de Confidentialité, constituent l'intégralité de l'accord entre l'Éditeur et l'Utilisateur.</p>
+      <h3>17.2 Nullité partielle</h3>
+      <p>Si l'une des clauses des présentes CGU est déclarée nulle ou inapplicable, les autres clauses restent pleinement en vigueur.</p>
+      <h3>17.3 Non-renonciation</h3>
+      <p>Le fait pour l'Éditeur de ne pas exercer un droit prévu par les présentes CGU ne saurait être interprété comme une renonciation à ce droit.</p>
+      <h3>17.4 Contacts</h3>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <div class="c-label">Questions générales / CGU</div>
+          <a href="mailto:contact@hippocriate.fr">contact@hippocriate.fr</a>
+        </div>
+        <div class="contact-item">
+          <div class="c-label">Données personnelles (DPO)</div>
+          <a href="mailto:dpo@hippocriate.fr">dpo@hippocriate.fr</a>
+        </div>
+        <div class="contact-item">
+          <div class="c-label">Droits IA Act (explication, révision)</div>
+          <a href="mailto:ia-droits@hippocriate.fr">ia-droits@hippocriate.fr</a>
+        </div>
+        <div class="contact-item">
+          <div class="c-label">Signalement incidents IA</div>
+          <a href="mailto:incidents-ia@hippocriate.fr">incidents-ia@hippocriate.fr</a>
+        </div>
+        <div class="contact-item">
+          <div class="c-label">Signalement contenu illicite (DSA/LCEN)</div>
+          <a href="mailto:legal@hippocriate.fr">legal@hippocriate.fr</a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+</div><!-- /page-wrap -->
+
+<footer>
+  <p>HippocrIAte — Conditions Générales d'Utilisation — Version 1.1 — Juillet 2026<br>
+  Conforme au Règlement (UE) 2024/1689 IA Act · RGPD · LCEN · DSA<br>
+  ACNL Consulting · <a href="mailto:contact@hippocriate.fr">contact@hippocriate.fr</a></p>
+</footer>
+
+</body>
+</html>
