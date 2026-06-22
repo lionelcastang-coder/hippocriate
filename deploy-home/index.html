@@ -71,6 +71,10 @@
   .disc-link{margin-top:18px;display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:700;color:var(--blue);}
   .disc-card:hover .disc-link .arr{transform:translateX(4px);}
   .arr{transition:transform .16s ease;}
+  .mobile-banner{transition:transform .16s ease, box-shadow .16s ease;}
+  .mobile-banner:hover{transform:translateY(-4px);box-shadow:0 16px 38px rgba(15,23,42,.16);}
+  .mobile-banner:hover .arr{transform:translateX(4px);}
+  @media(max-width:640px){.mobile-banner{flex-direction:column;align-items:flex-start;text-align:left;}}
 
   /* ─── VALUE / POURQUOI ─── */
   #pourquoi{background:var(--bg2);}
@@ -231,6 +235,23 @@
       </a>
 
     </div>
+
+    <!-- Transition : application mobile à venir -->
+    <p style="margin:46px auto 0;max-width:740px;text-align:center;font-size:15.5px;color:var(--body);line-height:1.65;text-wrap:balance"><strong style="color:var(--navy)">Bientôt, HippocrIAte dans ta poche.</strong> L'application mobile arrive prochainement pour les 5 filières : elle reprendra les principales fonctionnalités de la version Web, enrichies de fonctionnalités innovantes pensées spécialement pour le mobile.</p>
+
+    <!-- Pavé transversal : Application Mobile -->
+    <a class="mobile-banner" href="https://mobile.hippocriate.com" target="_blank" rel="noopener" style="margin-top:22px;display:flex;align-items:center;justify-content:space-between;gap:24px;background:linear-gradient(135deg,var(--navy) 0%, #16315c 50%, #0e6e80 140%);border-radius:22px;padding:28px 32px;box-shadow:var(--shadow-md);text-decoration:none;color:#fff">
+      <div style="display:flex;align-items:center;gap:20px;min-width:0">
+        <div style="flex-shrink:0;width:62px;height:62px;border-radius:16px;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font-size:30px">📱</div>
+        <div style="min-width:0">
+          <span style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);border-radius:30px;padding:4px 12px;font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:#fff">Bientôt disponible</span>
+          <h3 style="margin:10px 0 4px;font-size:21px;font-weight:800;letter-spacing:-.4px;color:#fff">Application Mobile HippocrIAte</h3>
+          <p style="margin:0;font-size:14px;line-height:1.55;color:rgba(255,255,255,.82)">Les 5 filières réunies dans une seule app — le meilleur de la version Web, plus des fonctionnalités mobiles inédites.</p>
+        </div>
+      </div>
+      <span style="flex-shrink:0;display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--navy);font-size:14px;font-weight:700;padding:13px 22px;border-radius:12px">Découvrir l'app mobile <span class="arr">→</span></span>
+    </a>
+
   </div>
 </section>
 
