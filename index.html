@@ -28,24 +28,6 @@
   .nav{display:flex;align-items:center;justify-content:space-between;height:62px;position:relative;}
   .logo-light{height:32px;width:auto;display:block;}
 
-  /* ─── MASCOTTE QUI MARCHE ─── */
-  .mascot{position:absolute;top:5px;left:60px;width:52px;height:52px;object-fit:contain;pointer-events:none;z-index:5;filter:drop-shadow(0 3px 5px rgba(15,23,42,.18));transform-origin:50% 90%;animation:mascot-walk 9s cubic-bezier(.45,.05,.25,1) .6s forwards;}
-  @keyframes mascot-walk{
-    0%   {left:58px; opacity:0; transform:translateY(10px) scale(.3) rotate(0);}
-    12%  {left:58px; opacity:1; transform:translateY(0) scale(1) rotate(0);}
-    19%  {transform:translateY(-3px) rotate(-5deg);}
-    29%  {transform:translateY(0) rotate(5deg);}
-    39%  {transform:translateY(-3px) rotate(-5deg);}
-    49%  {transform:translateY(0) rotate(5deg);}
-    59%  {transform:translateY(-3px) rotate(-5deg);}
-    69%  {transform:translateY(0) rotate(5deg);}
-    79%  {transform:translateY(-3px) rotate(-5deg);}
-    90%  {left:calc(100% - 52px); transform:translateY(0) rotate(0);}
-    100% {left:calc(100% - 52px); transform:translateY(0) rotate(0);}
-  }
-  @media(prefers-reduced-motion:reduce){
-    .mascot{animation:none;left:auto;right:0;opacity:1;transform:none;}
-  }
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:inherit;font-weight:600;cursor:pointer;border:none;border-radius:10px;transition:transform .12s ease, box-shadow .12s ease, background .15s ease;}
   .btn:active{transform:translateY(1px);}
   .btn-primary{background:var(--blue);color:#fff;padding:12px 22px;font-size:15px;box-shadow:0 4px 14px rgba(37,99,235,.28);}
@@ -185,7 +167,6 @@
         <text x="60" y="31" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="24" letter-spacing="-0.5"><tspan font-weight="800" fill="#1B3A6B">Hippocr</tspan><tspan font-weight="900" fill="#06B6D4">IA</tspan><tspan font-weight="800" fill="#1B3A6B">te</tspan></text>
       </svg>
     </a>
-    <img class="mascot" src="mascotte-hippocriate.png" alt="Mascotte HippocrIAte" aria-hidden="true">
   </div>
 </header>
 
