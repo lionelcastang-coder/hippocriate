@@ -147,6 +147,27 @@
   .hub-note{margin:22px auto 0;max-width:680px;text-align:center;font-size:13.5px;color:var(--muted);line-height:1.6;text-wrap:balance;}
   .hub-note b{color:var(--navy);}
 
+  /* ─── TUTEUR HUMAIN ─── */
+  #tuteur{background:#fff;}
+  .tut-split{display:grid;grid-template-columns:1.1fr 1fr;gap:22px;align-items:stretch;}
+  .tut-card{background:linear-gradient(135deg,#EFF6FF,#ECFEFF);border:1.5px solid #BFDBFE;border-radius:20px;padding:28px 26px;box-shadow:var(--shadow-sm);}
+  .tut-card .tag{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--blue);}
+  .tut-card h3{margin-top:6px;font-size:21px;font-weight:800;color:var(--navy);letter-spacing:-.4px;line-height:1.2;}
+  .tut-card p{margin-top:11px;font-size:14.5px;color:var(--body);line-height:1.65;}
+  .tut-ava-row{display:flex;align-items:center;gap:12px;margin-top:20px;padding-top:18px;border-top:1px solid #BFDBFE;}
+  .tut-ava{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--teal));display:flex;align-items:center;justify-content:center;font-size:22px;flex:none;box-shadow:var(--shadow-sm);}
+  .tut-ava-txt{font-size:12.5px;color:var(--muted);line-height:1.5;}
+  .tut-ava-txt b{color:var(--navy);font-size:13.5px;}
+  .tut-list{background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:26px 24px;box-shadow:var(--shadow-sm);}
+  .tut-list h4{font-size:16px;font-weight:800;color:var(--navy);}
+  .tut-list ul{list-style:none;margin-top:6px;}
+  .tut-list li{display:flex;gap:11px;align-items:flex-start;padding:12px 0;border-top:1px solid var(--border);font-size:14px;color:var(--body);line-height:1.55;}
+  .tut-list li:first-of-type{border-top:none;}
+  .tut-list li .ck{flex:none;width:22px;height:22px;border-radius:7px;background:#ECFDF5;color:#15803D;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;margin-top:1px;}
+  .tut-list li b{color:var(--navy);}
+  .tut-note{margin-top:22px;text-align:center;font-size:13px;color:var(--muted);max-width:720px;margin-left:auto;margin-right:auto;line-height:1.6;text-wrap:balance;}
+  .tut-note b{color:var(--navy);}
+
   /* ─── CTA NAVY ─── */
   .cta{padding:64px 0;}
   .cta-inner{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--navy) 0%, #16315c 50%, #0e6e80 140%);border-radius:26px;padding:54px 40px;text-align:center;box-shadow:var(--shadow-md);}
@@ -171,6 +192,7 @@
   @media(max-width:920px){
     .enjeu-grid{grid-template-columns:1fr;}
     .cycle{grid-template-columns:repeat(2,1fr);}
+    .tut-split{grid-template-columns:1fr;}
   }
   @media(max-width:760px){
     .hub-loop{flex-direction:column;}
@@ -235,6 +257,7 @@
     <div class="hero-cta">
       <a class="btn btn-primary" href="#grille">Voir la grille en action</a>
       <a class="btn btn-white" href="#methode" style="border:1px solid var(--border)">Découvrir la méthode</a>
+      <a class="btn btn-white" href="#tuteur" style="border:1px solid var(--border)">🎓 Ton tuteur humain</a>
     </div>
   </div>
 </section>
@@ -442,6 +465,41 @@
     <div class="grid-caption" id="loop-caption" style="max-width:960px;margin:18px auto 0;"><span class="cap-ico">🔄</span><span id="loop-cap-text">Trois vues, une seule boucle&nbsp;: chacune nourrit la suivante.</span></div>
 
     <p class="hub-note">Aujourd'hui, tu coches tes étapes toi-même. <b>Demain, la grille se cochera seule</b> au fil de tes QCM et flashcards, et le re-test passera tout seul au vert dès que ta maîtrise dépasse 80&nbsp;%.</p>
+  </div>
+</section>
+
+<!-- ═══════════ TUTEUR HUMAIN ═══════════ -->
+<section id="tuteur">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-eyebrow">L'humain en complément de l'IA</div>
+      <h2>Ton tuteur humain&nbsp;: l'IA t'entraîne, un aîné te débriefe</h2>
+      <p>L'application te fait travailler seul, au bon rythme. Mais après un concours blanc, rien ne remplace le regard de quelqu'un qui est <strong>déjà passé par là</strong>. C'est ton tuteur humain&nbsp;: un ambassadeur HippocrIAte qui anime, en visio, la colle de débrief de tes concours blancs.</p>
+    </div>
+
+    <div class="tut-split">
+      <div class="tut-card">
+        <div class="tag">Qui est ton tuteur humain</div>
+        <h3>Un aîné qui a réussi le concours, pas un algorithme de plus</h3>
+        <p>Tes colles de débrief sont animées en <strong>visio</strong>, en petit groupe de <strong>6 à 8 étudiants de ta fac</strong>, par un étudiant des années supérieures qui a déjà franchi le cap. Il connaît ton programme, tes profs et tes pièges — et il prépare la séance à partir de <strong>tes résultats réels</strong>, pas d'un cours générique.</p>
+        <div class="tut-ava-row">
+          <div class="tut-ava">🎓</div>
+          <div class="tut-ava-txt"><b>Un ambassadeur HippocrIAte</b><br>Étudiant en années supérieures, même faculté que toi · a réussi le concours</div>
+        </div>
+      </div>
+
+      <div class="tut-list">
+        <h4>Ce que t'apporte une colle de débrief</h4>
+        <ul>
+          <li><span class="ck">✓</span><span><b>On débriefe ton concours blanc</b> — celui que tu as passé dans l'app, corrigé et classé, repris avec toi point par point.</span></li>
+          <li><span class="ck">✓</span><span><b>Pièges, méthode &amp; plan d'action</b> — un retour personnalisé sur ton raisonnement et les UE à prioriser.</span></li>
+          <li><span class="ck">✓</span><span><b>En petit groupe, en visio</b> — 6 à 8 étudiants de ta fac, sur des créneaux qui s'adaptent à ton emploi du temps.</span></li>
+          <li><span class="ck">✓</span><span><b>Te situer, te faire progresser</b> — un cadre honnête, centré sur ta marge de progrès, qui ne te promet jamais la réussite.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="tut-note">Cette prestation se vend par <b>pack de colles, sans engagement</b> — tu les utilises quand tu veux, au fil de l'année.</p>
   </div>
 </section>
 
